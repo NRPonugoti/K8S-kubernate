@@ -1,0 +1,46 @@
+what is kubernate doing ?
+
+kubernate is doing  container management / container orchestration 
+and actuall work is still doing by container 
+
+
+Q) tell me the size of cluster with which you have worked 
+
+i have worked with 2 master nodes and 5  to 9 worker nodes 
+
+why 2 master nodes:
+
+1 master node failed , i can switch to master 2
+
+when every work load is increase we get more container , we run 10 worker nodes 
+ when every work load is less , you run 2 worker nodes 
+
+
+
+
+
+
+q) DAEMONSET VS DEPLOYMENT 
+
+purpose of daemonset : 
+i want to know what is happong on worker node ,put the daemonset in worker node 
+daemonset is special kind of deployment where it make sure atlaset on daemonset in one worker node 
+
+maily use daemonset for monitaring purpose 
+
+
+Q)what happen if you allocate 10gb of memory and i asking for 20gb 
+
+it is going to infinite loop and never executed after sometime , it will time out 
+
+Interview Question :
+1 master and 5 worker node 
+I want to create the pod and move the pod to worker 3 , is it possible 
+
+Ans: Yes , it is possible using node affinity
+And not affinity  - id not want to run this node 
+
+What is liveness probe
+
+Question : my container is running last 3 month now total data which is 3 gb I never want 3 gb what should I do 
+ANS: while creating container you should have given limit , now you can change the definition and add 

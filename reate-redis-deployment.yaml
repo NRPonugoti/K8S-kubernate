@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Deveployment
+metadata:
+  app: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  template: 
+    metadata: 
+      labels: 
+        app: radis
+    spec: 
+      containers:
+        - name: redis
+          image: redis:buster
+          resources: 
+            limits: 
+              memory: '512Mi'
+              cpu: 1000m
+          ports:
+            - containerPort: 6379
+          volumeMounts: 
+            - mountPath: /var/lib/redis/
+              name:redis-volume
+      volumes:
+        - name: redis-volume
+          persistentVolumeClaim:
+            claimName: redis-pv-claim
+
+
+

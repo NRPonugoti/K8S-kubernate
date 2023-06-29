@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: myapp-Deployment
+    labels:
+        app: alpha123
+        type: fron-end
+spec: 
+    replicas: 3
+    selector:
+        matchLabels: 
+            app:alpha123
+    template: 
+        metadata:
+            lables:
+                app: alpha123
+        spec: 
+            containers:
+                -name: nginc-contianer
+                image: nginx
+                ports:
+                    - containerPort: 80
+                
+
+        

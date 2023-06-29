@@ -1,0 +1,164 @@
+to get all worker nodes 
+#kubectl get nodes
+or
+#kubectl get nodes -o wide 
+
+to get the kubectl version 
+#kubectl version
+
+to get all information regarding pod 
+#kubectl get all 
+
+to create pod 
+#kubectl run name of pad --image = <Container name>
+#kubectl run my-first-pod --image stacksimplify/kubenginx:1.0.0
+
+to expose the pod as service 
+#kubectl expose pod <name of pod>  --type=Nodeport --port: 80 --name=<service-name>
+
+to deploy it 
+#kubectl create deplyment hello-node  - -image=k8s.gcr.io/echoserver:1.4
+
+TO know that HOW MANY API-RESORUCES
+
+#kubectl api-resources
+#kubectl api-resources |wc -l
+
+to display how many you done deployed 
+#kubectl get deploy
+
+to display all replicaset under deploy 
+#kubectl get replicaset
+
+to display all pods
+#kubectl get pods
+
+to display all containers under pod
+#kubectl describe pod  name of pod 
+
+to see all information
+#kubectl get all
+
+to increase the node and containers 
+#kubectl scale deployment hello-node - - replicas=5
+
+to see pod is running on which node 
+
+#kubectl get pods -o wide 
+
+create a  new pods with nginx image ?
+#kubectl run nginx –image=nginx
+
+Verify Pod Logs
+
+#kubectl logs my-first-pod
+ Stream pod logs with -f option and access application to see logs
+#kubectl logs -f my-first-pod
+
+Connect to a Container in POD and execute commands
+kubectl exec -it my-first-pod -- /bin/bash
+# Execute some commands in Nginx container
+ls
+cd /usr/share/nginx/html
+cat index.html
+exit
+
+-----------------------------
+Running individual commands in a Container
+
+kubectl exec -it <pod-name> env
+
+# Sample Commands
+kubectl exec -it my-first-pod env
+kubectl exec -it my-first-pod ls
+kubectl exec -it my-first-pod cat /usr/share/nginx/html/index.html
+------------------------------------------
+Get YAML Output of Pod & Service
+# Get pod definition YAML output
+kubectl get pod my-first-pod -o yaml   
+
+# Get service definition YAML output
+kubectl get service my-first-service -o yaml   
+
+---------------------------
+
+# Get all Objects in default namespace
+kubectl get all
+
+# Delete Services
+kubectl delete svc my-first-service
+kubectl delete svc my-first-service2
+kubectl delete svc my-first-service3
+
+# Delete Pod
+kubectl delete pod my-first-pod
+
+# Get all Objects in default namespace
+kubectl get all
+------------------------------------
+Verify the Owner of the Pod
+Verify under "name" tag under "ownerReferences". We will find the replicaset name to which this pod belongs to.
+kubectl get pods my-helloworld-rs-c8rrj -o yaml 
+
+-------------------------------
+Expose ReplicaSet as a Service
+
+# Expose ReplicaSet as a Service
+kubectl expose rs <ReplicaSet-Name>  --type=NodePort --port=80 --target-port=8080 --name=<Service-Name-To-Be-Created>
+kubectl expose rs my-helloworld-rs  --type=NodePort --port=80 --target-port=8080 --name=my-helloworld-rs-service
+
+# Get Service Info
+kubectl get service
+kubectl get svc
+
+# Get Public IP of Worker Nodes
+kubectl get nodes -o wide
+
+ReplicaSet Scalability feature
+High Availability
+
+
+--------------------------------
+SERVICE :
+
+to use service to expose the out side google cloud to access application 
+
+#kubectl get service
+
+to expose the port and add the type of service 
+#kubctl expose deployment hello-node  - -type-Loadbalancer - -port=8080
+
+#kubectl  create deployment test-nginx - - image =nginx:1.18-alpine - - replicas=5
+Then  I WANT TO EXPOSE THIS DEPLOYMENT 
+#KUBECTL EXPPOSE DEPLOYMENT TEST-NGINX  - - TYPE=LoadBalancer - -port=8080
+then 
+#kubectl get svc
+
+
+
+
+
+to delete all related to kubectl 
+#kubectl delete .
+
+
+
+to get the logs of pods
+#kubectl logs podname 
+
+
+
+
+
+to check the daemonset 
+#kubectl get ds 
+
+
+
+#to check configmap
+#kubectl get configmap
+#kubectl get secrets
+ 
+
+
+ 

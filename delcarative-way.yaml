@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: my-first-deployment
+  labels: 
+    app: alpha123
+spec:
+  replicas: 2
+  selector: 
+    matchlables: 
+      app: alpha123
+  template: 
+    
