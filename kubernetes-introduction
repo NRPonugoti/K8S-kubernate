@@ -1,0 +1,14 @@
+Container orchastration tool: which will manage containers for you 
+what is orchastration:
+kubernate by itself is doing container orchastration /container management 
+but  Docker is doing the actual work 
+kubernate is only manage those container for you 
+
+what is kubernate doing ?
+kubernate is doing container management / container orchestration 
+and actual work is still doing by container 
+
+kubernate and docker work togather to build and run containerized application 
+
+HISTORY OF KUBERNATE :
+
